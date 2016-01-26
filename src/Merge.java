@@ -1,4 +1,4 @@
-
+//Merge sort in decreasing order
 public class Merge {
 	public int[] merge_sorted_arr(int arr1[], int beg1, int end1, int arr2[], int beg2, int end2) {
 		int i = beg1;
