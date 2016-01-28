@@ -30,16 +30,16 @@ public class StringPerm {
 				
 				//swap
 				char c = inp[beg];
-				inp[beg] = inp[beg+1];
-				inp[beg+1]=c;
+				inp[beg] = inp[index];
+				inp[index]=c;
 				
 				//find with new string
 				count = count + countAllPerm(inp, beg+1, end);
 				
 				//swap back
 				c = inp[beg];
-				inp[beg] = inp[beg+1];
-				inp[beg+1]=c;
+				inp[beg] = inp[index];
+				inp[index]=c;
 				index++;
 			}
 		}
