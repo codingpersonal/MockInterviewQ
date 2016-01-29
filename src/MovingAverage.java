@@ -1,53 +1,45 @@
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.util.ArrayList;
+
+/*You will be given a set of integers, find the average for window_size number of intergers at once.
+ * Read the incoming integers from an input stream.*/
 
 public class MovingAverage {
-	public void printMovingAvg(BufferedReader reader, int window_size){
-		String[] arr = null;
-		try {
-			arr = reader.readLine().split(" ");
-		} catch (IOException e) {
-			e.printStackTrace();
+	//imagine the input coming from user in a live buffer instead of an intarr here.
+	public void printMovingAvg(int[] intarr, int window_size){
+		int id = 0;
+		//size of this output array will always be window_size
+		int op_arr[] = new int[window_size];		
+		int old_ptr = 0;
+		int sum = 0;
+		int beg = 0;
+		
+		while(id < intarr.length) {
+			sum = sum + intarr[id];
+			//it check if there are not even 2 elements in the array to be processed.
+			if(beg < window_size-1){
+				op_arr[beg] = intarr[id];
+				beg++;
+				//for 3 element, 3 being the window size
+			} else if(beg == window_size - 1) {
+				op_arr[beg] = intarr[id];
+				System.out.println("Avg:"+sum/window_size);
+				beg++;
+			}
+			//for more than 3 elements
+			else {
+				sum = sum - op_arr[old_ptr];
+				op_arr[old_ptr] = intarr[id];
+				old_ptr = (old_ptr + 1)%window_size;
+				System.out.println("Average:"+sum/window_size);
+			}
+			id++;
 		}
-		
-		int[] intarr=new int[arr.length];
-
-		for(int i=0;i<arr.length;i++) {
-			intarr[i]=Integer.parseInt(arr[i]);
-		}
-		
-		if(intarr.length < window_size) {
-			System.out.println("There should be atleast window size elements.");
-			return;
-		}
-		
-		int start = 0; 
-		int end = window_size - 1;
-		int sum = intarr[0] + intarr[1] + intarr[2];
-		System.out.println("Average:"+sum/window_size+"\n");
-		end++;
-		
-		while(end <= intarr.length-1) {
-			sum = sum - intarr[start++] + intarr[end++];
-			System.out.println("Average:"+sum/window_size);
-			System.out.println("\n");
-		}
-		
-		
 	}
 
 	public static void main(String[] args) {
 		MovingAverage m = new MovingAverage();
-		
-		BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-		try {
-			reader.readLine();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		
-		m.printMovingAvg(reader, 3);
+		int arr[] = {1,2,3,4,5};
+		m.printMovingAvg(arr, 3);
 	}
 
 }
