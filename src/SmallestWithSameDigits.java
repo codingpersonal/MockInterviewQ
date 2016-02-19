@@ -2,8 +2,13 @@
 public class SmallestWithSameDigits {
 
 	public static void main(String[] args) {
-		int arr[] = {3,2,4,9,7};
+		int arr[] = {3,4,9,1,7};
 		boolean flag = false;
+
+		//it will get the number which is just smallest than current number.
+		//swap it with the number.
+		//now arrange the remaining number in increasing order.
+		
 		for(int i = arr.length - 2; i >= 0; i--) {
 			int index = findSmallest(arr[i],arr,i + 1,arr.length-1);
 			//means it itself is the smallest, then do nothing
@@ -27,6 +32,7 @@ public class SmallestWithSameDigits {
 		}
 	}
 	
+	//this fn returns the number which is just smallest than number in arr from beg to end.
 	public static int findSmallest(int number, int arr[], int beg, int end) {
 		int min = -1;
 		int min_id = -1;

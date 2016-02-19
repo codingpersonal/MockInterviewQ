@@ -2,8 +2,8 @@
 public class StringPerm {
 
 	public static void main(String[] args) {
-		char[] str = {'s','o','m','y'};
-		System.out.println(countAllPerm(str,0,str.length-1));
+		char[] str = {'s','o','m','y','a'};
+		System.out.println(countPerm(str,0));
 	}
 	
 	public static void print(char c[]) {
@@ -11,6 +11,31 @@ public class StringPerm {
 			System.out.print(c[i]);
 		}
 		System.out.println("\n");
+	}
+	
+	public static int countPerm(char arr[], int index) {
+		int size = arr.length;
+		if(index == size -1)
+			return 1;
+		
+		int id = index;
+		int count = 0;
+		while(id <= size - 1) {
+			//swap
+			char c = arr[index];
+			arr[index] = arr[id];
+			arr[id]=c;
+			
+			count += countPerm(arr, index+1);
+			
+			//swap
+			c = arr[index];
+			arr[index] = arr[id];
+			arr[id]=c;
+			id++;
+		}
+		
+		return count;
 	}
 	
 	public static int countAllPerm(char[] inp, int beg, int end) {

@@ -1,9 +1,18 @@
 /*array contains ht of a bar chart. How much water can it store.*/
 public class BarChartWaterProblem {
-
+/*              |
+ *            | |
+ *            | |
+ *          | | |     |
+ *          | | |     |
+ *        | | | |     |
+ *|       | | | |     |
+ *| |     | | | |   | |
+ *| | |   | | | |   | |
+ *| | | | | | | | | | |
+ * */
 	public static void main(String[] args) {
 		int arr[] = {4,3,2,1,5,7,9,10,1,3,7};
-		int low, high;
 		int low_id = 0, high_id = 0;
 		int max_vol = 0;
 		
@@ -11,7 +20,6 @@ public class BarChartWaterProblem {
 			if(arr[i+ 1] <= arr[i]) {
 				low_id = i;
 				int j = i + 1;
-				int index = i;
 				while(arr[low_id] >= arr[j] && j < arr.length -1)  {
 					j++;
 				}

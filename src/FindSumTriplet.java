@@ -4,7 +4,7 @@ public class FindSumTriplet {
 
 	public static void main(String[] args) {
 		int arr[] = {1,3,4,6,8,9,10,12,15,20};
-		int sum = 23;
+		int sum = 37;
 		int end = arr.length -1;
 		NumberPair n = new NumberPair();
 		
