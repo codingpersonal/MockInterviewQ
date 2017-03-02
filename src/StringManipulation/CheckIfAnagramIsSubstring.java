@@ -1,4 +1,8 @@
-/*Check if anagram of a string is substring of other string or not.*/
+/*Check if anagram of a string is substring of other string or not.
+ * solution involves creating a map of freqcount.
+ * then keep decrementing the characters from the list which are found.
+ * 
+ * additionally you can use dense array to perform this. Less space wastage.*/
 
 package StringManipulation;
 
@@ -48,3 +52,11 @@ public class CheckIfAnagramIsSubstring {
 	}
 
 }
+
+/*
+ * Divide 0101010101110 into 2 parts, such that left side contains max 0s and right side max 1s.
+ * Return the number of 0s in left hand side and 1s in the right hand side.
+ * */
+
+/* Max Sub matrix sum in a 2D matrix
+ * */

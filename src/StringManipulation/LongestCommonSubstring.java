@@ -4,13 +4,16 @@
 package StringManipulation;
 
 public class LongestCommonSubstring {
+	//question is about max substring from both, there can be multiple instances.
+	//max len will keep a count in that case.
 	static int  maxLen = 0;
 
 	// count is the max substring till this char assuming all previous char to this char is matched
 	// it returns the max common substring found from this index
 	public static int commonSubStr(String str1, String str2, int index1, int index2, int count) {
-		if(index1 >= str1.length() || index2 >= str2.length())
+		if(index1 >= str1.length() || index2 >= str2.length()) {
 			return count;
+		}
 
 		if(str1.charAt(index1) == str2.charAt(index2)) {
 			int v1 = commonSubStr(str1, str2, index1+1, index2+1, count+1);
@@ -30,7 +33,7 @@ public class LongestCommonSubstring {
 	}
 	
 	public static void main(String[] args) {
-		int ret = commonSubStr("ssomyab", "ssomyaa", 0, 0, 0);
+		int ret = commonSubStr("ssomyab", "vssomyaa", 0, 0, 0);
 		System.out.println(Math.max(maxLen,ret));
 	}
 }

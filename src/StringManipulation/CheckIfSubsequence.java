@@ -1,4 +1,6 @@
-/*check if one string is a sub sequence of other string or not.*/
+/*check if one string is a sub sequence of other string or not.
+ * Take 2 pointers, one for src and other for destination,
+ * then move the pointers as per you match characters in the string.*/
 
 package StringManipulation;
 
@@ -6,7 +8,7 @@ public class CheckIfSubsequence {
 
 	public static void main(String[] args) {
 		String source = "somyaaggarwal";
-		String destination = "somyaaggarwal";
+		String destination = "somya";
 		int i = 0;
 		int j = 0;
 		int count = destination.length();
