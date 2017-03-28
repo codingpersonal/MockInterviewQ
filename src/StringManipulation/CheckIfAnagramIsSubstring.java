@@ -1,8 +1,12 @@
-/*Check if anagram of a string is substring of other string or not.
+/*Check if anagram of a string is substring(consecutive chars in other string) of other string or not.
  * solution involves creating a map of freqcount.
  * then keep decrementing the characters from the list which are found.
  * 
- * additionally you can use dense array to perform this. Less space wastage.*/
+ * additionally you can use dense array to perform this. Less space wastage.
+ * 
+ * 2. generate a unique code word from original string.
+ * Hence all its anagrams will produce the same code.
+ * Traverse the other string to see if its substrings produce the same code or not*/
 
 package StringManipulation;
 
@@ -47,16 +51,8 @@ public class CheckIfAnagramIsSubstring {
 		freq_count.put('r', 1);
 		int count = 6;
 
-		String inp = "aaggar";
+		String inp = "somaaagrgsom";
 		System.out.println(checkAna(inp, freq_count, count));
 	}
 
 }
-
-/*
- * Divide 0101010101110 into 2 parts, such that left side contains max 0s and right side max 1s.
- * Return the number of 0s in left hand side and 1s in the right hand side.
- * */
-
-/* Max Sub matrix sum in a 2D matrix
- * */
